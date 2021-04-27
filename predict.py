@@ -8,7 +8,7 @@ import cv2 as cv
 
 MODEL_FILENAME = 'saved_model.pb'
 LABELS_FILENAME = 'labels.txt'
-
+labels = None
 
 class ObjectDetection:
     OUTPUT_TENSOR_NAMES = ['detected_boxes', 'detected_scores', 'detected_classes']
@@ -28,6 +28,7 @@ class ObjectDetection:
 
 
 def predict_video(model_filename):
+    global labels
     od_model = ObjectDetection(model_filename)
     cap = cv.VideoCapture(0)
 
@@ -64,6 +65,7 @@ def predict_video(model_filename):
 
 
 def main():
+    global labels
     parser = argparse.ArgumentParser('Object Detection for Custom Vision TensorFlow model')
     parser.add_argument('--model_filename', type=str, default=MODEL_FILENAME, help='Filename for the tensorflow model')
     parser.add_argument('--labels_filename', type=str, default=LABELS_FILENAME, help='Filename for the labels file')
