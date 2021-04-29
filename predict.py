@@ -51,8 +51,8 @@ def predict_video(model_filename):
                 start = (bbox[0]*w, bbox[1]*h)
                 end = (bbox[2]*w, bbox[3]*h)
                 text_org = (bbox[0]*w, bbox[1]*h-5)
-                color = (255,0,0)
-                frame = cv.rectangle(frame, start, end, color, 2)
+                color = (0,0,0)
+                frame = cv.rectangle(frame, start, end, color, 3)
                 frame = cv.putText(frame, f"tag-{np.round(conf.numpy(), 2)}", text_org, cv.FONT_HERSHEY_SIMPLEX, 0.3, color, 1, cv.LINE_AA)
                 
         cv.imshow('frame', frame)
