@@ -1,4 +1,4 @@
-"""Sample prediction script for TensorFlow SavedModel"""
+
 import argparse
 import os
 import tensorflow as tf
